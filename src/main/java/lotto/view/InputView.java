@@ -17,7 +17,7 @@ public class InputView {
     public List<String> lottoWin() {
         System.out.println(WIN_NUMBER);
         String winNumberList = Console.readLine();
-        return List.of(winNumberList);
+        return List.of(winNumberList.split(","));
     }
 
     public String bonusLottoWin() {
