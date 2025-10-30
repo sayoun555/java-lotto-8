@@ -8,7 +8,7 @@ public class LottoAmount {
         this.money = money;
     }
 
-    public void checkAmountValid(int money) {
+    private void checkAmountValid(int money) {
         if (money < 1000 || money % 1000 != 0)
             throw new IllegalArgumentException("[ERROR] 금액을 정확하게 기입해주세요.");
     }
