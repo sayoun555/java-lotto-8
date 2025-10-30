@@ -3,6 +3,7 @@ package lotto;
 import lotto.domain.RateOfReturn;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -17,8 +18,7 @@ public class Lotto {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
         }
     }
-    public List<Integer> lottoWin() {
-        RateOfReturn
-    }
+
+    public int
     // TODO: 추가 기능 구현
 }

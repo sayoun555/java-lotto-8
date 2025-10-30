@@ -1,0 +1,9 @@
+package lotto.domain;
+
+public enum LottoRule {
+    FIRST(6, false, 2_000_000_000),
+    SECOND(5, true, 30_000_000),
+    THIRD(5, false, 1_5000_000),
+    FOURTH(4, false, 50_000),
+    FIFTH(3, false, 5_000),
+}
