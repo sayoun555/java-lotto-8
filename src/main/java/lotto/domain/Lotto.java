@@ -1,9 +1,6 @@
-package lotto;
-
-import lotto.domain.RateOfReturn;
+package lotto.domain;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Lotto {
     private final List<Integer> numbers;
