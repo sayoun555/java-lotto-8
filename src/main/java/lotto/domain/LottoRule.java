@@ -15,6 +15,18 @@ public enum LottoRule {
         this.matchCount = matchCount;
         this.bonus = bonus;
         this.prize = prize;
+
+    }
+
+    public static LottoRule lottoRuleFind(int matchCount, boolean bonus) {
+        LottoRule[] allRule = LottoRule.values();
+        for (int i = 0; i < LottoRule.values().length; i++) {
+            LottoRule rule = allRule[i];
+            if (rule.isBonus() == bonus && rule.getMatchCount() == matchCount) {
+                return rule;
+            }
+        }
+        return null;
     }
 
     public int getPrize() {
