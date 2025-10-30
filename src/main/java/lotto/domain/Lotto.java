@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Lotto {
     private final List<Integer> numbers;
@@ -16,6 +17,16 @@ public class Lotto {
         }
     }
 
-    public int
-    // TODO: 추가 기능 구현
+    public int lottoCompare(List<Integer> winNumber) {
+        int count = 0;
+        for (Integer myNumber : numbers) {
+            if (winNumber.contains(myNumber)) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public boolean bonusLotto(int number) {
+        return numbers.contains(number);
+    }
 }
