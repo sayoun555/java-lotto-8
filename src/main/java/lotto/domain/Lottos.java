@@ -23,9 +23,19 @@ public class Lottos {
         return statistics;
     }
 
-//    public Map<LottoRule, Integer> lottoCalculation(List<Integer> lottoNumber, int bonus) {
-//        for (int i = 0; i < lotto.size(); i++) {
-//            LottoRule.lottoRuleFind()
-//        }
-//    }
+    public Map<LottoRule, Integer> lottoCalculation(List<Integer> lottoNumber, int bonus) {
+        LottoRule rule;
+        Map<LottoRule, Integer> lottoRuleIntegerHashMap = winStatistics();
+        for (int i = 0; i < lotto.size(); i++) {
+            Lotto oneLotto = lotto.get(i);
+            rule = LottoRule.lottoRuleFind(
+                    oneLotto.lottoCompare(lottoNumber),
+                    oneLotto.bonusLotto(bonus));
+            int val = lottoRuleIntegerHashMap.get(rule);
+            val++;
+            lottoRuleIntegerHashMap.put(rule, val);
+
+        }
+        return lottoRuleIntegerHashMap;
+    }
 }
