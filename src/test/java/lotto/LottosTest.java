@@ -14,7 +14,16 @@ public class LottosTest {
     void 로또_당첨_계산_테스트() {
         List<Lotto> lottos = List.of(new Lotto(List.of(1, 2, 3, 4, 5, 6)));
         Lottos lottoGroup = new Lottos(lottos);
-        Map<LottoRule, Integer> result = lottoGroup.lottoCalculation(List.of(1, 2, 3, 4, 5, 6), 7);
+        Map<LottoRule, Integer> result = lottoGroup.lottoWinFind(List.of(1, 2, 3, 4, 5, 6), 7);
         assertThat(result.get(LottoRule.FIRST)).isEqualTo(1);
+    }
+
+    @Test
+    void 수익률_계산_테스트() {
+        List<Lotto> lottos = List.of(new Lotto(List.of(1, 2, 3, 4, 5, 6)));
+        Lottos lottoGroup = new Lottos(lottos);
+        Map<LottoRule, Integer> statistics = lottoGroup.lottoWinFind(List.of(1, 2, 3, 4, 5, 6), 7);
+        double result = lottoGroup.resultCalculate(statistics, 1000);
+        assertThat(result).isEqualTo(200000000.0);
     }
 }

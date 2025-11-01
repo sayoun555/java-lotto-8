@@ -15,7 +15,7 @@ public class Lottos {
         return lotto.size();
     }
 
-    public Map<LottoRule, Integer> winStatistics() {
+    private Map<LottoRule, Integer> winStatistics() {
         Map<LottoRule, Integer> statistics = new HashMap<>();
         for (int i = 0; i < LottoRule.values().length; i++) {
             statistics.put(LottoRule.values()[i], 0);
@@ -23,7 +23,7 @@ public class Lottos {
         return statistics;
     }
 
-    public Map<LottoRule, Integer> lottoCalculation(List<Integer> lottoNumber, int bonus) {
+    public Map<LottoRule, Integer> lottoWinFind(List<Integer> lottoNumber, int bonus) {
         LottoRule rule;
         Map<LottoRule, Integer> lottoRuleIntegerHashMap = winStatistics();
         for (int i = 0; i < lotto.size(); i++) {
@@ -38,4 +38,19 @@ public class Lottos {
         }
         return lottoRuleIntegerHashMap;
     }
+
+    public double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
+        int lottoMoney = 0;
+        for (int i = 0; i < LottoRule.values().length; i++) {
+            LottoRule lotto = LottoRule.values()[i];
+            int count = lottoRule.get(lotto);
+            lottoMoney += count * lotto.getPrize();
+        }
+        return lottoMoney;
+    }
+
+    public double resultCalculate(Map<LottoRule, Integer> lottoRule, int money) {
+        return (double) calculateRateOfReturn(lottoRule) / money * 100;
+    }
+
 }
