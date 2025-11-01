@@ -6,9 +6,11 @@ import java.util.Map;
 
 public class Lottos {
     private final List<Lotto> lotto;
+    private final LottoAmount lottoAmount;
 
-    public Lottos(List<Lotto> lotto) {
+    public Lottos(List<Lotto> lotto, LottoAmount lottoAmount) {
         this.lotto = lotto;
+        this.lottoAmount = lottoAmount;
     }
 
     public int lottoQuantity() {
@@ -23,6 +25,16 @@ public class Lottos {
         return statistics;
     }
 
+    private double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
+        int lottoMoney = 0;
+        for (int i = 0; i < LottoRule.values().length; i++) {
+            LottoRule lotto = LottoRule.values()[i];
+            int count = lottoRule.get(lotto);
+            lottoMoney += count * lotto.getPrize();
+        }
+        return lottoMoney;
+    }
+
     public Map<LottoRule, Integer> lottoWinFind(List<Integer> lottoNumber, int bonus) {
         LottoRule rule;
         Map<LottoRule, Integer> lottoRuleIntegerHashMap = winStatistics();
@@ -34,23 +46,11 @@ public class Lottos {
             int val = lottoRuleIntegerHashMap.get(rule);
             val++;
             lottoRuleIntegerHashMap.put(rule, val);
-
         }
         return lottoRuleIntegerHashMap;
     }
 
-    public double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
-        int lottoMoney = 0;
-        for (int i = 0; i < LottoRule.values().length; i++) {
-            LottoRule lotto = LottoRule.values()[i];
-            int count = lottoRule.get(lotto);
-            lottoMoney += count * lotto.getPrize();
-        }
-        return lottoMoney;
+    public double resultCalculate(Map<LottoRule, Integer> lottoRule) {
+        return (double) calculateRateOfReturn(lottoRule) / lottoAmount.getMoney() * 100;
     }
-
-    public double resultCalculate(Map<LottoRule, Integer> lottoRule, int money) {
-        return (double) calculateRateOfReturn(lottoRule) / money * 100;
-    }
-
 }

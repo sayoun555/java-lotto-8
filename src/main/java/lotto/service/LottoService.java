@@ -1,4 +1,8 @@
 package lotto.service;
 
-public class LottoService {
+import lotto.domain.LottoAmount;
+import lotto.domain.Lottos;
+
+public interface LottoService {
+    Lottos LottoStarts(LottoAmount lottoAmount);
 }
