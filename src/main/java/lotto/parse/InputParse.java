@@ -1,7 +1,6 @@
 package lotto.parse;
 
 import lotto.message.ErrorMessage;
-import lotto.view.InputView;
 
 import java.util.Arrays;
 import java.util.List;

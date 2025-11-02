@@ -1,7 +1,6 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import lotto.message.ErrorMessage;
 import lotto.parse.InputParse;
 
 import java.util.List;
