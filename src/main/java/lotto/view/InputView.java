@@ -25,6 +25,10 @@ public class InputView {
         return Console.readLine();
     }
 
+    public int parser() {
+        return Integer.parseInt(bonusLottoWin());
+    }
+
     public List<Integer> parsser(List<String> input) {
         return input.stream()
                 .map(Integer::parseInt)

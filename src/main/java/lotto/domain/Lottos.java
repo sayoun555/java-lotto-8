@@ -25,7 +25,7 @@ public class Lottos {
         return statistics;
     }
 
-    private double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
+    public double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
         int lottoMoney = 0;
         for (int i = 0; i < LottoRule.values().length; i++) {
             LottoRule lotto = LottoRule.values()[i];
