@@ -27,9 +27,10 @@ public class LottoController {
         outputView.lottoView(lottos);
         List<String> strings = inputView.lottoWin();
         List<Integer> number = inputView.parsser(strings);
-        Map<LottoRule, Integer> result = lottos.lottoWinFind(number, inputView.parser());
+        int bonus = inputView.parser();
+        Map<LottoRule, Integer> result = lottos.lottoWinFind(number, bonus);
+        outputView.lottosView(result);
         double rate = lottos.resultCalculate(result);
         outputView.rateView(rate);
-        outputView.lottosView(result);
     }
 }

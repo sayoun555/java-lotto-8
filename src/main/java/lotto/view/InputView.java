@@ -1,6 +1,8 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import lotto.message.ErrorMessage;
+import lotto.parse.InputParse;
 
 import java.util.List;
 
@@ -11,7 +13,8 @@ public class InputView {
 
     public int lottoSum() {
         System.out.println(PURCHASE_AMOUNT);
-        return Integer.parseInt(Console.readLine());
+        String input = Console.readLine();
+        return InputParse.parseAmount(input);
     }
 
     public List<String> lottoWin() {
@@ -23,15 +26,5 @@ public class InputView {
     public String bonusLottoWin() {
         System.out.println(BONUS_WIN_NUMBER);
         return Console.readLine();
-    }
-
-    public int parser() {
-        return Integer.parseInt(bonusLottoWin());
-    }
-
-    public List<Integer> parsser(List<String> input) {
-        return input.stream()
-                .map(Integer::parseInt)
-                .toList();
     }
 }

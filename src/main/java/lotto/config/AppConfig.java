@@ -1,7 +1,6 @@
 package lotto.config;
 
 import lotto.controller.LottoController;
-import lotto.domain.LottoAmount;
 import lotto.domain.RandomNumber;
 import lotto.factory.LottoFactory;
 import lotto.service.LottoService;
