@@ -17,14 +17,15 @@ public class InputView {
         return InputParse.parseAmount(input);
     }
 
-    public List<String> lottoWin() {
+    public List<Integer> lottoWin() {
         System.out.println(WIN_NUMBER);
-        String winNumberList = Console.readLine();
-        return List.of(winNumberList.split(","));
+        String input = Console.readLine();
+        return InputParse.parseList(input);
     }
 
-    public String bonusLottoWin() {
+    public int bonusLottoWin() {
         System.out.println(BONUS_WIN_NUMBER);
-        return Console.readLine();
+        String input = Console.readLine();
+        return InputParse.parseBonus(input);
     }
 }

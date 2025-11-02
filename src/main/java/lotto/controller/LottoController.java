@@ -22,15 +22,25 @@ public class LottoController {
     }
 
     public void run() {
-        LottoAmount lottoAmount = new LottoAmount(inputView.lottoSum());
-        Lottos lottos = lottoService.LottoStarts(lottoAmount);
+        Lottos lottos = purchaseLotto();
         outputView.lottoView(lottos);
-        List<String> strings = inputView.lottoWin();
-        List<Integer> number = inputView.parsser(strings);
-        int bonus = inputView.parser();
-        Map<LottoRule, Integer> result = lottos.lottoWinFind(number, bonus);
+
+        Map<LottoRule, Integer> result = calculateWinning(lottos);
+        display(lottos, result);
+    }
+    private Lottos purchaseLotto() {
+        LottoAmount amount = new LottoAmount(inputView.lottoSum());
+        return lottoService.LottoStarts(amount);
+    }
+
+    private Map<LottoRule, Integer> calculateWinning(Lottos lottos) {
+        List<Integer> winNumbers = inputView.lottoWin();
+        int bonus = inputView.bonusLottoWin();
+        return lottos.lottoWinFind(winNumbers, bonus);
+    }
+
+    private void display(Lottos lottos, Map<LottoRule, Integer> result) {
         outputView.lottosView(result);
-        double rate = lottos.resultCalculate(result);
-        outputView.rateView(rate);
+        outputView.rateView(lottos.resultCalculate(result));
     }
 }
