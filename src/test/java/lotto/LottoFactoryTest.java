@@ -15,7 +15,7 @@ public class LottoFactoryTest {
     void 로또_판매기_테스트 () {
         RandomNumber randomNumber = new RandomNumber();
         LottoAmount amount = new LottoAmount(8000);
-        LottoFactory factory = new LottoFactory(randomNumber, amount);
+        LottoFactory factory = new LottoFactory(amount);
         List<Lotto> lottos = factory.lottoCreate();
         assertThat(lottos).hasSize(8);
     }
