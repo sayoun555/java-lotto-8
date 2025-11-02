@@ -15,7 +15,8 @@ public class LottoServiceImpl implements LottoService{
     }
 
     public Lottos LottoStarts (LottoAmount lottoAmount) {
-        List<Lotto> lottoList = lottoFactory.lottoCreate();
+        int count = lottoAmount.numberOfProducts();
+        List<Lotto> lottoList = lottoFactory.lottoCreate(count);
         return new Lottos(lottoList, lottoAmount);
     }
 }

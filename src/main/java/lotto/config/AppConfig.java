@@ -1,5 +1,6 @@
 package lotto.config;
 
+import lotto.controller.LottoController;
 import lotto.domain.LottoAmount;
 import lotto.domain.RandomNumber;
 import lotto.factory.LottoFactory;
@@ -12,14 +13,16 @@ public class AppConfig {
     private final InputView inputView;
     private final OutputView outputView;
     private final LottoService lottoService;
-    private final LottoFactory lottoFactory;
 
     public AppConfig() {
-        LottoAmount lottoAmount = new LottoAmount();
         RandomNumber randomNumber = new RandomNumber();
+        LottoFactory lottoFactory = new LottoFactory(randomNumber);
         this.inputView = new InputView();
         this.outputView = new OutputView();
-        this.lottoService = new LottoServiceImpl();
-        LottoFactory lottoFactory = new LottoFactory(randomNumber);
+        this.lottoService = new LottoServiceImpl(lottoFactory);
+    }
+
+    public LottoController lottoController() {
+        return new LottoController(lottoService, inputView, outputView);
     }
 }
