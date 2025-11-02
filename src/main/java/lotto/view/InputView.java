@@ -14,7 +14,7 @@ public class InputView {
         return Integer.parseInt(Console.readLine());
     }
 
-    private List<String> lottoWin() {
+    public List<String> lottoWin() {
         System.out.println(WIN_NUMBER);
         String winNumberList = Console.readLine();
         return List.of(winNumberList.split(","));
@@ -25,8 +25,8 @@ public class InputView {
         return Console.readLine();
     }
 
-    public List<Integer> parsser() {
-        return lottoWin().stream()
+    public List<Integer> parsser(List<String> input) {
+        return input.stream()
                 .map(Integer::parseInt)
                 .toList();
     }

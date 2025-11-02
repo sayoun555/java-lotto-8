@@ -53,4 +53,8 @@ public class Lottos {
     public double resultCalculate(Map<LottoRule, Integer> lottoRule) {
         return (double) calculateRateOfReturn(lottoRule) / lottoAmount.getMoney() * 100;
     }
+
+    public List<Lotto> getLotto() {
+        return lotto;
+    }
 }
