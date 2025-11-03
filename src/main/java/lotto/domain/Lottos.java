@@ -25,7 +25,7 @@ public class Lottos {
 
     public double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
        return Arrays.stream(LottoRule.values())
-               .mapToDouble(rule->lottoRule.get(rule) * rule.getPrize())
+               .mapToDouble(rule -> lottoRule.get(rule) * rule.getPrize())
                .sum();
     }
 
