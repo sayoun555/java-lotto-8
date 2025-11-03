@@ -7,12 +7,7 @@ import java.util.List;
 
 public class InputParse {
     public static int parseAmount(String input) {
-        validateNumber(input);
-        try {
-            return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ErrorMessage.PARSE_FAIL.message());
-        }
+        return parseBonus(input);
     }
 
     public static List<Integer> parseList(String input) {

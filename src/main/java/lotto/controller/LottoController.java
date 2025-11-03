@@ -36,7 +36,7 @@ public class LottoController {
     private Map<LottoRule, Integer> calculateWinning(Lottos lottos) {
         List<Integer> winNumbers = inputView.lottoWin();
         int bonus = inputView.bonusLottoWin();
-        return lottos.lottoWinFind(winNumbers, bonus);
+        return lottos.lottoWin(winNumbers, bonus);
     }
 
     private void display(Lottos lottos, Map<LottoRule, Integer> result) {
