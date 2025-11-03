@@ -1,5 +1,6 @@
 package lotto.domain;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,13 +27,9 @@ public class Lottos {
     }
 
     public double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {
-        int lottoMoney = 0;
-        for (int i = 0; i < LottoRule.values().length; i++) {
-            LottoRule lotto = LottoRule.values()[i];
-            int count = lottoRule.get(lotto);
-            lottoMoney += count * lotto.getPrize();
-        }
-        return lottoMoney;
+       return Arrays.stream(LottoRule.values())
+               .mapToDouble(rule->lottoRule.get(rule) * rule.getPrize())
+               .sum();
     }
 
     public Map<LottoRule, Integer> lottoWin(List<Integer> lottoNumber, int bonus) {

@@ -1,7 +1,6 @@
 package lotto.factory;
 
 import lotto.domain.Lotto;
-import lotto.domain.LottoAmount;
 import lotto.domain.RandomNumber;
 
 import java.util.ArrayList;

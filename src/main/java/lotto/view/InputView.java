@@ -19,7 +19,7 @@ public class InputView {
     public List<Integer> lottoWin() {
         System.out.println(WIN_NUMBER);
         String input = Console.readLine();
-        return InputParse.parseList(input);
+        return InputParse.parse(input);
     }
 
     public int bonusLottoWin() {

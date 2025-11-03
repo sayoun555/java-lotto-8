@@ -22,21 +22,15 @@ public class Lotto {
     }
 
     private void validateRange(List<Integer> numbers) {
-        for (Integer number : numbers) {
-            if (number < 1 || number > 45) {
-                throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
-            }
+        if (!numbers.stream().allMatch(num -> num >= 1 && num <= 45)) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
         }
     }
 
     public int lottoCompare(List<Integer> winNumber) {
-        int count = 0;
-        for (Integer myNumber : numbers) {
-            if (winNumber.contains(myNumber)) {
-                count++;
-            }
-        }
-        return count;
+        return (int) numbers.stream()
+                .filter(winNumber::contains)
+                .count();
     }
 
     public boolean bonusLotto(int number) {

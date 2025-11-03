@@ -1,5 +1,8 @@
 package lotto.domain;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public enum LottoRule {
     FIRST(6, false, 2_000_000_000),
     SECOND(5, true, 30_000_000),
@@ -20,14 +23,10 @@ public enum LottoRule {
     }
 
     public static LottoRule lottoRuleFind(int matchCount, boolean bonus) {
-        LottoRule[] allRule = LottoRule.values();
-        for (int i = 0; i < LottoRule.values().length; i++) {
-            LottoRule rule = allRule[i];
-            if (rule.isBonus() == bonus && rule.getMatchCount() == matchCount) {
-                return rule;
-            }
-        }
-        return NONE;
+        return Arrays.stream(LottoRule.values())
+                .filter(rule -> rule.isBonus() == bonus && rule.getMatchCount() == matchCount)
+                .findFirst()
+                .orElse(NONE);
     }
 
     public int getPrize() {

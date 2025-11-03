@@ -10,7 +10,7 @@ public class InputParse {
         return parseBonus(input);
     }
 
-    public static List<Integer> parseList(String input) {
+    public static List<Integer> parse(String input) {
         List<String> parts = Arrays.asList(input.split(","));
         try {
             return parts.stream()
