@@ -17,12 +17,12 @@ public class OutputView {
     public void lottoView(Lottos lottos) {
         System.out.println(lottos.lottoQuantity() + LOTTO_COUNT_MESSAGE);
         lottos.getLotto().stream()
-                .map(this::LottoNumbers)
+                .map(this::lottoNumbers)
                 .forEach(System.out::println);
         System.out.println();
     }
 
-    private List<Integer> LottoNumbers(Lotto lotto) {
+    private List<Integer> lottoNumbers(Lotto lotto) {
         return lotto.getNumbers().stream().sorted().toList();
     }
 
