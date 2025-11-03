@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import lotto.message.ErrorMessage;
+
 public class LottoAmount {
     private final int money;
 
@@ -10,7 +12,7 @@ public class LottoAmount {
 
     private void checkAmountValid(int money) {
         if (money < 1000 || money % 1000 != 0)
-            throw new IllegalArgumentException("[ERROR] 금액을 정확하게 기입해주세요.");
+            throw new IllegalArgumentException(ErrorMessage.PARSE_FAIL.message());
     }
 
     public int numberOfProducts() {
