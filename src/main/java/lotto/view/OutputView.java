@@ -40,13 +40,13 @@ public class OutputView {
     }
 
     private String rankMessage(LottoRule rule) {
-        String prizeFormat = String.format("%,d", rule.getPrize());
-        String baseMessage = rule.getMatchCount() + "개 일치";
+        String prize = String.format("%,d", rule.getPrize());
+        String base = rule.getMatchCount() + "개 일치";
 
         if (rule.isBonus()) {
-            return baseMessage + ", 보너스 볼 일치 (" + prizeFormat + "원)";
+            return base + ", 보너스 볼 일치 (" + prize + "원)";
         }
-        return baseMessage + " (" + prizeFormat + "원)";
+        return base + " (" + prize + "원)";
     }
 
     public void rateView(double rate) {

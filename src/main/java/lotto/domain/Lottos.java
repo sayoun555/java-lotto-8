@@ -1,9 +1,9 @@
 package lotto.domain;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Lottos {
     private final List<Lotto> lotto;
@@ -19,11 +19,8 @@ public class Lottos {
     }
 
     private Map<LottoRule, Integer> winStatistics() {
-        Map<LottoRule, Integer> statistics = new HashMap<>();
-        for (int i = 0; i < LottoRule.values().length; i++) {
-            statistics.put(LottoRule.values()[i], 0);
-        }
-        return statistics;
+        return Arrays.stream(LottoRule.values())
+                .collect(Collectors.toMap(rule -> rule, rule -> 0));
     }
 
     public double calculateRateOfReturn(Map<LottoRule, Integer> lottoRule) {

@@ -24,7 +24,6 @@ public class LottoController {
     public void run() {
         Lottos lottos = purchaseLotto();
         outputView.lottoView(lottos);
-
         Map<LottoRule, Integer> result = calculateWinning(lottos);
         display(lottos, result);
     }

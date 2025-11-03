@@ -3,8 +3,8 @@ package lotto.factory;
 import lotto.domain.Lotto;
 import lotto.domain.RandomNumber;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class LottoFactory {
     private final RandomNumber randomNumber;
@@ -14,10 +14,8 @@ public class LottoFactory {
     }
 
     public List<Lotto> lottoCreate(int count) {
-        List<Lotto> lottos = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            lottos.add(new Lotto(randomNumber.randomNumberLotto()));
-        }
-        return lottos;
+        return IntStream.range(0, count)
+                .mapToObj(i -> new Lotto(randomNumber.randomNumberLotto()))
+                .toList();
     }
 }
