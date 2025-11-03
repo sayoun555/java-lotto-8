@@ -37,21 +37,19 @@ public class Lottos {
 
     public Map<LottoRule, Integer> lottoWin(List<Integer> lottoNumber, int bonus) {
         Map<LottoRule, Integer> statistics = winStatistics();
-
         lotto.stream()
-                .map(oneLotto -> LottoRank(oneLotto, lottoNumber, bonus))
-                .forEach(rule -> RankCount(statistics, rule));
-
+                .map(oneLotto -> lottoRank(oneLotto, lottoNumber, bonus))
+                .forEach(rule -> rankCount(statistics, rule));
         return statistics;
     }
 
-    private LottoRule LottoRank(Lotto lotto, List<Integer> winNumbers, int bonus) {
+    private LottoRule lottoRank(Lotto lotto, List<Integer> winNumbers, int bonus) {
         int matchCount = lotto.lottoCompare(winNumbers);
         boolean hasBonus = lotto.bonusLotto(bonus);
         return LottoRule.lottoRuleFind(matchCount, hasBonus);
     }
 
-    private void RankCount(Map<LottoRule, Integer> statistics, LottoRule rule) {
+    private void rankCount(Map<LottoRule, Integer> statistics, LottoRule rule) {
         statistics.put(rule, statistics.get(rule) + 1);
     }
 

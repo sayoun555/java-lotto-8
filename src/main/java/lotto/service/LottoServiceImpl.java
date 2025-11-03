@@ -7,14 +7,14 @@ import lotto.factory.LottoFactory;
 
 import java.util.List;
 
-public class LottoServiceImpl implements LottoService{
+public class LottoServiceImpl implements LottoService {
     private final LottoFactory lottoFactory;
 
     public LottoServiceImpl(LottoFactory lottoFactory) {
         this.lottoFactory = lottoFactory;
     }
 
-    public Lottos LottoStarts (LottoAmount lottoAmount) {
+    public Lottos LottoStarts(LottoAmount lottoAmount) {
         int count = lottoAmount.numberOfProducts();
         List<Lotto> lottoList = lottoFactory.lottoCreate(count);
         return new Lottos(lottoList, lottoAmount);

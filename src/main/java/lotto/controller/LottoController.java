@@ -28,6 +28,7 @@ public class LottoController {
         Map<LottoRule, Integer> result = calculateWinning(lottos);
         display(lottos, result);
     }
+
     private Lottos purchaseLotto() {
         LottoAmount amount = new LottoAmount(inputView.lottoSum());
         return lottoService.LottoStarts(amount);
